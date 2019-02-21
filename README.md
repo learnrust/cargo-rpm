@@ -84,6 +84,20 @@ error: destination `/home/pi/gb/helloworld/.rpm` already exists!
 [pi@centos7 helloworld]$
 
 ```
+* building the rpm with vebose option
+
+```
+[pi@centos7 helloworld]$ cargo rpm build -vv
+     Running cargo build --release
+    Finished release [optimized] target(s) in 0.02s
+    Creating release archive: helloworld-0.1.0.tar.gz
+    Building helloworld-0.1.0.rpm (using rpmbuild 4.11.3)
+     Running /usr/bin/rpmbuild -D _topdir /home/pi/gb/helloworld/target/release/rpmbuild -D _tmppath /home/pi/gb/helloworld/target/release/rpmbuild/tmp -ba SPECS/helloworld.spec
+error: License field must be present in package: (main package)
+error: error running /usr/bin/rpmbuild (exit status: exit code: 1)
+[pi@centos7 helloworld]$
+
+```
 * template example
 ```
 [pi@centos7 helloworld]$ cat /tmp/t.template
